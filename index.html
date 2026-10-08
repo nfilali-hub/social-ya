@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocialYA | Beweging voor wat woorden niet bereiken</title>
+  <meta name="description" content="SocialYA gelooft in de kracht van beweging, verbinding en persoonlijke aandacht. Ruimte om te ontdekken, te groeien en jezelf te zijn.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --green: #82916c;
+      --green-dark: #536647;
+      --orange: #c96b49;
+      --orange-light: #f0b69a;
+      --cream: #faf6ef;
+      --sand: #eee8dd;
+      --brown: #34251e;
+      --muted: #72675e;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--brown);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.035em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border-radius: 50px;
+      padding: 16px 27px;
+      font-weight: 700;
+      transition: .3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #aa5236;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border-color: var(--brown);
+      color: var(--brown);
+    }
+
+    .btn-outline:hover {
+      background: var(--brown);
+      color: white;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(250,246,239,.95);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(52,37,30,.08);
+    }
+
+    .nav {
+      min-height: 94px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 185px;
+      max-height: 75px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 700;
+      transition: color .2s;
+    }
+
+    nav a:hover { color: var(--orange); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 29px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -180px;
+      right: -110px;
+      width: 650px;
+      height: 650px;
+      background: #e9e2d4;
+      border-radius: 45% 55% 59% 41%;
+      transform: rotate(-25deg);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 60px;
+      padding: 90px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(49px, 5.8vw, 86px);
+      line-height: 1.04;
+      max-width: 650px;
+      margin: 24px 0;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 490px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 33px;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 20px;
+    }
+
+    .hero-photo {
+      height: 500px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 48% 48% 43% 43% / 35% 36% 24% 25%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--orange);
+      position: absolute;
+      right: -25px;
+      bottom: 5px;
+      z-index: 1;
+    }
+
+    .floating-note {
+      position: absolute;
+      left: -35px;
+      bottom: 60px;
+      z-index: 3;
+      padding: 20px 25px;
+      background: var(--white);
+      box-shadow: 0 15px 50px rgba(52,37,30,.12);
+      border-radius: 22px;
+      transform: rotate(-5deg);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+    }
+
+    /* STATEMENT */
+
+    .statement {
+      padding: 35px 0;
+      background: var(--green-dark);
+      color: white;
+      overflow: hidden;
+    }
+
+    .statement p {
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(18px, 2.4vw, 27px);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* INTRO */
+
+    .intro {
+      padding: 125px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 110px;
+    }
+
+    .intro-images {
+      position: relative;
+      padding: 15px 55px 40px 0;
+    }
+
+    .intro-images .main-img {
+      width: 100%;
+      height: 490px;
+      object-fit: cover;
+      border-radius: 170px 170px 22px 22px;
+    }
+
+    .intro-images .small-img {
+      position: absolute;
+      right: -25px;
+      bottom: 0;
+      width: 220px;
+      height: 240px;
+      object-fit: cover;
+      border: 9px solid var(--cream);
+      border-radius: 120px 120px 20px 20px;
+    }
+
+    .intro h2, .approach h2, .contact h2 {
+      font-size: clamp(36px, 4vw, 60px);
+      line-height: 1.1;
+      margin: 20px 0 25px;
+    }
+
+    .intro h2 span { color: var(--green-dark); }
+
+    .intro p {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .handwritten {
+      font-family: Georgia, serif;
+      font-style: italic;
+      color: var(--orange);
+      font-size: 25px;
+    }
+
+    /* APPROACH */
+
+    .approach {
+      position: relative;
+      background: #e8eadf;
+      padding: 120px 0;
+      overflow: hidden;
+    }
+
+    .approach::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border: 1px solid rgba(83,102,71,.2);
+      border-radius: 50%;
+      right: -230px;
+      top: -200px;
+    }
+
+    .approach-heading {
+      max-width: 720px;
+      margin-bottom: 70px;
+    }
+
+    .approach-heading p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 50px;
+      position: relative;
+    }
+
+    .journey::before {
+      content: "";
+      height: 2px;
+      border-top: 2px dashed rgba(83,102,71,.35);
+      position: absolute;
+      top: 37px;
+      left: 7%;
+      right: 7%;
+    }
+
+    .journey-item { position: relative; }
+
+    .journey-number {
+      width: 76px;
+      height: 76px;
+      background: var(--cream);
+      color: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 29px;
+      font-weight: 800;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 30px;
+    }
+
+    .journey-item:nth-child(2) .journey-number {
+      background: var(--orange);
+      color: white;
+    }
+
+    .journey-item h3 {
+      font-size: 29px;
+      margin-bottom: 15px;
+    }
+
+    .journey-item p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    /* EDITORIAL PHOTO */
+
+    .image-break {
+      height: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-break::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,rgba(30,28,20,.68),transparent);
+    }
+
+    .image-break-content {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: max(5%,calc((100% - 1180px)/2));
+      transform: translateY(-50%);
+      max-width: 590px;
+      color: white;
+    }
+
+    .image-break h2 {
+      font-size: clamp(38px,4.3vw,66px);
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+
+    .image-break p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* VALUES */
+
+    .values {
+      padding: 130px 0;
+    }
+
+    .values-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 65px;
+    }
+
+    .values h2 {
+      font-size: clamp(38px,4vw,59px);
+      max-width: 640px;
+      line-height: 1.15;
+      margin: 15px 0 0;
+    }
+
+    .values-header p {
+      max-width: 350px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .value-row {
+      border-top: 1px solid #dcd4c8;
+      padding: 35px 0;
+      display: grid;
+      grid-template-columns: 80px 1fr 1.4fr;
+      align-items: center;
+      gap: 35px;
+      transition: padding .3s;
+    }
+
+    .value-row:last-child { border-bottom: 1px solid #dcd4c8; }
+
+    .value-row:hover { padding-left: 15px; }
+
+    .value-icon {
+      font-size: 33px;
+      color: var(--orange);
+    }
+
+    .value-row h3 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .value-row p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    /* QUOTE */
+
+    .quote {
+      padding: 100px 0;
+      background: var(--orange);
+      color: white;
+      text-align: center;
+    }
+
+    .quote h2 {
+      font-size: clamp(35px,4.8vw,70px);
+      line-height: 1.2;
+      max-width: 980px;
+      margin: auto;
+    }
+
+    .quote .eyebrow {
+      color: #ffe1d4;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding: 130px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .contact h2 { max-width: 540px; }
+
+    .contact p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+      max-width: 480px;
+    }
+
+    .contact-visual {
+      height: 400px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-shape {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: #e3e7db;
+      border-radius: 50% 40% 50% 35%;
+      transform: rotate(20deg);
+    }
+
+    .contact-visual img {
+      width: 270px;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 160px 160px 20px 20px;
+      position: relative;
+      transform: rotate(-7deg);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--brown);
+      color: white;
+      padding: 70px 0 25px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 70px;
+      padding-bottom: 65px;
+    }
+
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .footer-brand span { color: var(--orange-light); }
+
+    footer p, footer a {
+      color: #c9c0b9;
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    footer h4 {
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    footer a:hover { color: white; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      color: #b2a69c;
+      font-size: 12px;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px) {
+      .menu-toggle { display: block; }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 94px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 30px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: 1px solid #e5ddd1;
+      }
+
+      nav.open { display: flex; }
+
+      .hero-inner, .intro-grid, .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .hero-inner { padding: 65px 0; }
+
+      .hero-photo { height: 420px; }
+
+      .intro, .approach, .values, .contact { padding: 85px 0; }
+
+      .intro-grid { gap: 90px; }
+
+      .journey { grid-template-columns: 1fr; gap: 35px; }
+
+      .journey::before { display: none; }
+
+      .journey-number { margin-bottom: 18px; }
+
+      .values-header { flex-direction: column; align-items: start; }
+
+      .value-row { grid-template-columns: 55px 1fr; }
+
+      .value-row p { grid-column: 2; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; }
+
+      .footer-top > div:first-child { grid-column: span 2; }
+
+      .contact-visual { order: -1; }
+    }
+
+    @media(max-width:600px) {
+      .nav { min-height: 78px; }
+      nav { top: 78px; }
+      .logo img { width: 150px; }
+      .hero h1 { font-size: 49px; }
+      .hero-photo { height: 350px; }
+      .floating-note { left: -5px; font-size: 15px; }
+      .intro-images .main-img { height: 350px; }
+      .intro-images .small-img { width: 150px; height: 180px; right: 0; }
+      .image-break { height: 500px; }
+      .image-break-content { left: 6%; right: 6%; }
+      .value-row h3 { font-size: 25px; }
+      .footer-top { grid-template-columns: 1fr; gap: 35px; }
+      .footer-top > div:first-child { grid-column: auto; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <img src="socialya-logo.png" alt="SocialYA logo">
+    </a>
+
+    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="main-nav">☰</button>
+
+    <nav id="main-nav">
+      <a href="#home">Home</a>
+      <a href="#over">Over SocialYA</a>
+      <a href="#werkwijze">Onze benadering</a>
+      <a href="#waarden">Waar we voor staan</a>
+      <a href="#contact" class="btn btn-primary">Kennismaken →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="reveal">
+      <span class="eyebrow">Welkom bij SocialYA</span>
+      <h1>Soms begint verandering met <em>beweging.</em></h1>
+      <p class="hero-description">
+        Niet alles wat je voelt, denkt of meemaakt is makkelijk onder woorden te brengen.
+        Soms helpt het om samen iets te ondernemen, nieuwe ervaringen op te doen
+        en vanuit daar verder te groeien.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#over">Ontdek SocialYA ↗</a>
+        <a class="btn btn-outline" href="#contact">Neem contact op</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <img
+        class="hero-photo"
+        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1100&q=85"
+        alt="Mensen die samen buiten tijd doorbrengen"
+      >
+      <div class="hero-circle"></div>
+      <div class="floating-note">Ruimte om jezelf te zijn ✳</div>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="container">
+    <p>Beweging voor wat woorden niet bereiken.</p>
+  </div>
+</section>
+
+<section class="intro" id="over">
+  <div class="container intro-grid">
+    <div class="intro-images reveal">
+      <img
+        class="main-img"
+        src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=1000&q=85"
+        alt="Een groene omgeving die rust en ruimte uitstraalt"
+        loading="lazy"
+      >
+      <img
+        class="small-img"
+        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=85"
+        alt="Mensen die samen in gesprek zijn"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="reveal">
+      <span class="eyebrow">Over SocialYA</span>
+      <h2>Niet alleen praten over groei. <span>Maar ook ervaren.</span></h2>
+
+      <p>
+        Iedereen heeft zijn eigen verhaal, zijn eigen tempo en zijn eigen manier
+        om stappen te zetten. Wat voor de één werkt, hoeft voor de ander
+        niet hetzelfde te zijn.
+      </p>
+
+      <p>
+        Bij SocialYA staat het menselijke contact centraal. Elkaar leren kennen,
+        luisteren naar wat iemand nodig heeft en samen ontdekken wat mogelijk is.
+        Zonder alles van tevoren in te vullen.
+      </p>
+
+      <p class="handwritten">Want ieder verhaal verdient ruimte.</p>
+
+      <a class="btn btn-primary" href="#werkwijze">Lees verder →</a>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="werkwijze">
+  <div class="container">
+
+    <div class="approach-heading reveal">
+      <span class="eyebrow">Onze benadering</span>
+      <h2>Verbinding ontstaat niet volgens een vast stappenplan.</h2>
+      <p>
+        Soms begint een goed gesprek tijdens een wandeling.
+        Soms ontstaat vertrouwen juist wanneer je samen iets onderneemt.
+        Het gaat om ruimte, aandacht en de mogelijkheid om op je eigen
+        manier stappen te zetten.
+      </p>
+    </div>
+
+    <div class="journey">
+
+      <div class="journey-item reveal">
+        <div class="journey-number">01</div>
+        <h3>Elkaar ontmoeten</h3>
+        <p>
+          Eerst kennismaken. Luisteren, vragen stellen en ontdekken
+          wat belangrijk is. Zonder haast of onnodige verwachtingen.
+        </p>
+      </div>
+
+      <div class="journey-item reveal">
+        <div class="journey-number">02</div>
+        <h3>Samen in beweging</h3>
+        <p>
+          Door activiteiten en ervaringen kan ruimte ontstaan voor
+          verbinding, ontwikkeling en nieuwe inzichten.
+        </p>
+      </div>
+
+      <div class="journey-item reveal">
+        <div class="journey-number">03</div>
+        <h3>Verder groeien</h3>
+        <p>
+          Grote veranderingen beginnen vaak klein.
+          Iedere stap telt, ook wanneer die voor een ander
+          misschien vanzelfsprekend lijkt.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="image-break">
+  <img
+    src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1800&q=85"
+    alt="Een rustig wandelpad midden in de natuur"
+    loading="lazy"
+  >
+
+  <div class="image-break-content">
+    <span class="eyebrow" style="color:#f7c8b6">Ruimte voor ontwikkeling</span>
+    <h2>Soms kom je verder door samen op pad te gaan.</h2>
+    <p>
+      Een andere omgeving. Een nieuwe ervaring.
+      Een moment waarop een gesprek vanzelf ontstaat.
+    </p>
+  </div>
+</section>
+
+<section class="values" id="waarden">
+  <div class="container">
+
+    <div class="values-header reveal">
+      <div>
+        <span class="eyebrow">Wat belangrijk is</span>
+        <h2>Het zit vaak in de kleine dingen.</h2>
+      </div>
+
+      <p>
+        Oprechte aandacht hoeft niet ingewikkeld te zijn.
+        Soms begint het simpelweg met iemand zien,
+        horen en serieus nemen.
+      </p>
+    </div>
+
+    <div class="value-row reveal">
+      <span class="value-icon">✳</span>
+      <h3>Oprechte aandacht</h3>
+      <p>
+        De tijd nemen om te luisteren en belangstelling
+        te tonen voor de persoon achter het verhaal.
+      </p>
+    </div>
+
+    <div class="value-row reveal">
+      <span class="value-icon">↗</span>
+      <h3>Ruimte voor groei</h3>
+      <p>
+        Ontwikkeling hoeft niet in grote sprongen.
+        Kleine stappen kunnen net zo waardevol zijn.
+      </p>
+    </div>
+
+    <div class="value-row reveal">
+      <span class="value-icon">♡</span>
+      <h3>Menselijk contact</h3>
+      <p>
+        Vertrouwen, herkenning en verbinding beginnen
+        bij de manier waarop we elkaar benaderen.
+      </p>
+    </div>
+
+    <div class="value-row reveal">
+      <span class="value-icon">◎</span>
+      <h3>Eigen tempo</h3>
+      <p>
+        Ieder mens ontwikkelt zich anders.
+        Daar hoort ruimte bij voor persoonlijke keuzes
+        en individuele behoeften.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="quote">
+  <div class="container reveal">
+    <span class="eyebrow">De gedachte achter SocialYA</span>
+    <h2>“Je hoeft niet altijd de juiste woorden te vinden om toch vooruit te komen.”</h2>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+
+    <div class="reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Een kennismaking begint gewoon met een gesprek.</h2>
+
+      <p>
+        Benieuwd naar SocialYA of wil je meer weten over de mogelijkheden?
+        Neem gerust contact op. We maken graag kennis en horen
+        wat je zoekt.
+      </p>
+
+      <a href="mailto:info@socialya.nl" class="btn btn-primary">
+        Stuur een bericht ↗
+      </a>
+    </div>
+
+    <div class="contact-visual reveal">
+      <div class="contact-shape"></div>
+      <img
+        src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=85"
+        alt="Warm zonlicht in een rustige natuurlijke omgeving"
+        loading="lazy"
+      >
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div>
+        <div class="footer-brand">Social<span>YA</span></div>
+        <p>Beweging voor wat woorden niet bereiken.</p>
+        <p>
+          Ruimte voor verbinding, persoonlijke aandacht
+          en ontwikkeling.
+        </p>
+      </div>
+
+      <div>
+        <h4>Ontdek SocialYA</h4>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#over">Over SocialYA</a>
+          <a href="#werkwijze">Onze benadering</a>
+          <a href="#waarden">Waar we voor staan</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-links">
+          <a href="#contact">Contact opnemen</a>
+          <a href="mailto:info@socialya.nl">info@socialya.nl</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SocialYA. Alle rechten voorbehouden.</span>
+      <span>Met aandacht voor mensen.</span>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute(
+      'aria-label',
+      isOpen ? 'Menu sluiten' : 'Menu openen'
+    );
+    toggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Menu openen');
+      toggle.textContent = '☰';
+    });
+  });
+
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('visible');
+    });
+  }
+</script>
+
+</body>
+</html>
